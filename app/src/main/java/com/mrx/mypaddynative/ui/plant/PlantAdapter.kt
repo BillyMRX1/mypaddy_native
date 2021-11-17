@@ -35,7 +35,7 @@ class PlantAdapter(private val listDiseases: ArrayList<Plant>, private val isSca
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listDiseases.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

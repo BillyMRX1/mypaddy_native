@@ -1,11 +1,14 @@
 package com.mrx.mypaddynative.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.mrx.mypaddynative.R
 import com.mrx.mypaddynative.databinding.ActivityMainBinding
+import com.mrx.mypaddynative.ui.plant.PlantActivity
+import com.mrx.mypaddynative.ui.plant.PlantActivity.Companion.IS_SCAN
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,11 +31,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun btnSetup() {
         btnScan.setOnClickListener {
-            Toast.makeText(this, "ini scan", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PlantActivity::class.java)
+            intent.putExtra(IS_SCAN, true)
+            startActivity(intent)
         }
 
         btnDiseases.setOnClickListener {
-            Toast.makeText(this, "ini penyakit", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PlantActivity::class.java)
+            intent.putExtra(IS_SCAN, false)
+            startActivity(intent)
         }
     }
 }
