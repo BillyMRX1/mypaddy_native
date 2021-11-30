@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPaddyNative">
         <activity
+            android:name=".ui.detail.DetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.plant.PlantActivity"
             android:exported="true" />
         <activity

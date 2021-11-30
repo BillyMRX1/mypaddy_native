@@ -79,21 +79,19 @@ class Classifier(
             Comparator<IClassifier.Recognition> { (_, _, confidence1), (_, _, confidence2) ->
                 Float.compare(
                     confidence1,
-                    confidence2
+                    confidence2,
                 )
             })
 
         for (i in labelList.indices) {
             val confidence = (labelProbArray[0][i].toInt() and 0xff) / 255.0f
-            if (confidence > THRESHOLD) {
-                pq.add(
-                    IClassifier.Recognition(
-                        "" + i,
-                        if (labelList.size > i) labelList[i] else "Unknown",
-                        confidence
-                    )
+            pq.add(
+                IClassifier.Recognition(
+                    "" + i,
+                    if (labelList.size > i) labelList[i] else "Unknown",
+                    confidence
                 )
-            }
+            )
         }
 
         val recognitions = ArrayList<IClassifier.Recognition>()

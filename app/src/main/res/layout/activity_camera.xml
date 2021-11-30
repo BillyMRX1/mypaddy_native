@@ -41,9 +41,9 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <include-->
-<!--        android:id="@+id/view_success"-->
-<!--        android:visibility="gone"-->
-<!--        layout="@layout/view_scan_success"/>-->
+    <include
+        android:id="@+id/view_success"
+        android:visibility="gone"
+        layout="@layout/view_scan_success"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

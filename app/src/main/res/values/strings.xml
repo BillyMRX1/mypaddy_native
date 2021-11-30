@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Paddy</string>
     <string name="daftar_penyakit_padi">Daftar Penyakit Padi</string>
+    <string name="detail_penyakit">Detail Penyakit</string>
+    <string name="objek_tidak_terdeteksi">Objek tidak terdeteksi</string>
+    <string name="cara_mengatasi">Cara mengatasi:</string>
 </resources>
