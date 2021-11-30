@@ -1,5 +1,7 @@
 package com.mrx.mypaddynative.data
 
+import com.mrx.mypaddynative.R
+
 object PlantData {
     private val diseasesId = arrayOf(
         0,
@@ -17,9 +19,31 @@ object PlantData {
         "Daun maka akan berakibat daun menjadi layu patogen yang mengakibatkan munculnya bercak-bercak yang kecil, berbentuk garis pendek, lingkaran atau elips dengan ukuran panjang 0.5 – 5 mm dan lebar 0.5 – 1.5 mm. Apabila serangannya berat maka daun akan menguning dan menggulung.")
 
     private val diseasesSolution = arrayOf(
-        arrayListOf("1. Da la sweet laka bladah", "2. jadi begini boy", "3. loh bukan gitu cok"),
-        arrayListOf("1. wtf", "2. testing", "3. duh magernya"),
-        arrayListOf("1. tolong skripsi dihapus!!!", "2. apa2 an ini", "3. punten ieuh teh naon koplok"))
+        arrayListOf("1. Menanam varietas tahan. Untuk daerah endemis varietas Code dan Angke",
+            "2. Bibit padi yang ditanam tidak dipotong pada bagian ujungnya",
+            "3. Jarak tanam jangan terlalu rapat, disarankan dengan cara tanam jejer legowo",
+            "4. Pengairan berselang (intermiten), hindari penggenangan yang terus-menerus",
+            "5. Pemupukan berimbang, jangan terlalu banyak pupuk N",
+            "6. Jika intensitas penyakit melebihi 20%, semprot dengan bakterisida"
+        ),
+        arrayListOf("1. Jarak tanam yang tidak terlalu rapat terutama saat musim hujan",
+            "2. Jika perlu gunakan cara tanam sistem legowo",
+            "3. Jangan gunakan urea yang berlebih dan imbangi dengan unsur k",
+            "4. Aplikasi fungisida pada daun tanaman padi, contoh: antracol, dithane, dan fungisida kontak lain sebagai pencegahnya. Jika sudah terserang gunakan fungisida sistemik seperti score, anvil, folicur, Nativo, opus, indar dll",
+            "5. Penanaman varietas tahan, seperti Ciherang dan Membrano.",
+            "6. Pemupukan berimbang yang lengkap, yaitu 250 kg urea, 100 kg SP36, dan 100 kg KCl per ha.",
+            "7. Penyemprotan fungisida dengan bahan aktif difenoconazol, azoxistrobin, belerang, difenokonazol, tebukonazol, karbendazim, metil tiofanat, atau klorotalonil."
+        ),
+        arrayListOf("1. Jika perlu gunakan cara tanam sistem legowo",
+            "2. Pemupukan berimbang, jangan terlalu banyak pupuk N",
+            "3. Jarak tanam jangan terlalu rapat, disarankan dengan cara tanam jejer legowo",
+            "4. Penyemprotan fungisida dengan bahan aktif difenoconazol, azoxistrobin, belerang, difenokonazol, tebukonazol, karbendazim, metil tiofanat, atau klorotalonil."
+        ))
+
+    private val plantImages = intArrayOf(
+        R.drawable.blight,
+        R.drawable.brown_spot,
+        R.drawable.smut)
 
     val listData: ArrayList<Plant>
         get() {
@@ -29,6 +53,7 @@ object PlantData {
                 plant.name = diseasesNames[position]
                 plant.detail = diseasesDetails[position]
                 plant.solution = diseasesSolution[position]
+                plant.image = plantImages[position]
                 list.add(plant)
             }
             return list

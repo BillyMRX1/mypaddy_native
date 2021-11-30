@@ -11,6 +11,7 @@ import com.mrx.mypaddynative.databinding.ActivityPlantBinding
 import com.mrx.mypaddynative.ui.camera.CameraActivity
 import com.mrx.mypaddynative.ui.camera.CameraActivity.Companion.DISEASES_NAME
 import com.mrx.mypaddynative.ui.camera.CameraActivity.Companion.DISEASES_DESC
+import com.mrx.mypaddynative.ui.camera.CameraActivity.Companion.DISEASES_IMAGE
 import com.mrx.mypaddynative.ui.camera.CameraActivity.Companion.DISEASES_SOLUTION
 import com.mrx.mypaddynative.ui.detail.DetailActivity
 
@@ -60,12 +61,14 @@ class PlantActivity : AppCompatActivity(), PlantAdapter.OnItemClickCallback {
             intent.putExtra(DISEASES_NAME, data.name)
             intent.putExtra(DISEASES_DESC, data.detail)
             intent.putExtra(DISEASES_SOLUTION, data.solution)
+            intent.putExtra(DISEASES_IMAGE, data.image)
             startActivity(intent)
         } else {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(DISEASES_NAME, data.name)
             intent.putExtra(DISEASES_DESC, data.detail)
             intent.putExtra(DISEASES_SOLUTION, data.solution)
+            intent.putExtra(DISEASES_IMAGE, data.image)
             startActivity(intent)
         }
     }

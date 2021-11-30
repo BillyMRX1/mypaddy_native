@@ -22,6 +22,7 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var diseasesName: String
     private lateinit var diseasesDesc: String
     private lateinit var diseasesSolution: ArrayList<String>
+    private var diseasesImage: Int = 0
     private lateinit var result: List<IClassifier.Recognition>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,7 @@ class CameraActivity : AppCompatActivity() {
             diseasesName = extras.getString(DISEASES_NAME).toString()
             diseasesDesc = extras.getString(DISEASES_DESC).toString()
             diseasesSolution = extras.getStringArrayList(DISEASES_SOLUTION)!!
+            diseasesImage = extras.getInt(DISEASES_IMAGE)
         }
     }
 
@@ -83,6 +85,7 @@ class CameraActivity : AppCompatActivity() {
             intent.putExtra(DISEASES_NAME, diseasesName)
             intent.putExtra(DISEASES_DESC, diseasesDesc)
             intent.putExtra(DISEASES_SOLUTION, diseasesSolution)
+            intent.putExtra(DISEASES_IMAGE, diseasesImage)
             startActivity(intent)
         }
     }
@@ -119,5 +122,6 @@ class CameraActivity : AppCompatActivity() {
         const val DISEASES_NAME = "diseases_name"
         const val DISEASES_DESC = "diseases_desc"
         const val DISEASES_SOLUTION = "diseases_solution"
+        const val DISEASES_IMAGE = "diseases_image"
     }
 }
