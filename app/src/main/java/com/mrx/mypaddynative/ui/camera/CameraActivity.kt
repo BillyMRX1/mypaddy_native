@@ -13,7 +13,9 @@ import com.mrx.mypaddynative.tflite.IClassifier
 import com.mrx.mypaddynative.ui.detail.DetailActivity
 import com.wonderkiln.camerakit.*
 import java.text.NumberFormat
+import java.util.*
 import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
@@ -53,6 +55,7 @@ class CameraActivity : AppCompatActivity() {
             override fun onError(p0: CameraKitError?) {}
 
             override fun onImage(p0: CameraKitImage) {
+                val begin = Date().time
                 binding.cameraView.stop()
                 var bitmap = p0.bitmap
                 bitmap = Bitmap.createScaledBitmap(bitmap, INPUT_SIZE, INPUT_SIZE, false)
@@ -64,7 +67,10 @@ class CameraActivity : AppCompatActivity() {
                             viewSuccess.tvDiseases.text = diseasesName
                             viewSuccess.tvDesc.text = diseasesDesc
                             val confidencePercent = (result[i].confidence*100).toInt()
-                            viewSuccess.tvAkurasi.text = "$confidencePercent%"
+                            viewSuccess.tvAkurasi.text = "Akurasi: $confidencePercent%"
+                            val end = Date().time
+                            val compileTime = ((end-begin).toDouble()/1000).toString()
+                            viewSuccess.tvSpeed.text = "Classify Time: $compileTime detik"
                         }
                         binding.viewSuccess.root.visibility = View.VISIBLE
                     }
