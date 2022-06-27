@@ -63,16 +63,20 @@ class CameraActivity : AppCompatActivity() {
 
                 for (i in result.indices) {
                     if (result[i].title == diseasesName) {
-                        binding.apply {
-                            viewSuccess.tvDiseases.text = diseasesName
-                            viewSuccess.tvDesc.text = diseasesDesc
-                            val confidencePercent = (result[i].confidence*100).toInt()
-                            viewSuccess.tvAkurasi.text = "Akurasi: $confidencePercent%"
-                            val end = Date().time
-                            val compileTime = ((end-begin).toDouble()/1000).toString()
-                            viewSuccess.tvSpeed.text = "Classify Time: $compileTime detik"
+                        if ((result[i].confidence*100).toInt() > 80) {
+                            binding.apply {
+                                viewSuccess.tvDiseases.text = diseasesName
+                                viewSuccess.tvDesc.text = diseasesDesc
+                                val confidencePercent = (result[i].confidence*100).toInt()
+                                viewSuccess.tvAkurasi.text = "Akurasi: $confidencePercent%"
+                                val end = Date().time
+                                val compileTime = ((end-begin).toDouble()/1000).toString()
+                                viewSuccess.tvSpeed.text = "Classify Time: $compileTime detik"
+                            }
+                            binding.viewSuccess.root.visibility = View.VISIBLE
+                        } else {
+                            binding.viewFailed.root.visibility = View.VISIBLE
                         }
-                        binding.viewSuccess.root.visibility = View.VISIBLE
                     }
                 }
             }
@@ -93,6 +97,10 @@ class CameraActivity : AppCompatActivity() {
             intent.putExtra(DISEASES_SOLUTION, diseasesSolution)
             intent.putExtra(DISEASES_IMAGE, diseasesImage)
             startActivity(intent)
+        }
+
+        binding.viewFailed.btnRetry.setOnClickListener {
+            onBackPressed()
         }
     }
 

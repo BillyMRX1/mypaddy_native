@@ -4,4 +4,7 @@
     <string name="detail_penyakit">Detail Penyakit</string>
     <string name="objek_tidak_terdeteksi">Objek tidak terdeteksi</string>
     <string name="cara_mengatasi">Cara mengatasi:</string>
+    <string name="coba_lagi">Coba Lagi</string>
+    <string name="objek_tidak_dikenal">Objek Tidak Dikenal</string>
+    <string name="selamat_kamu_benar">Selamat kamu benar</string>
 </resources>
